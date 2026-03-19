@@ -1,48 +1,81 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Poets4Life | CEO Dashboard</title>
+    <title>Poets4Life | Cooper The Little Biker</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        hdOrange: '#ff6600',
+                        hdDark: '#121212',
+                        hdGray: '#242424'
+                    },
+                    fontFamily: {
+                        sans: ['Kanit', 'sans-serif'],
+                        heading: ['Oswald', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        body { font-family: 'Kanit', sans-serif; }
+        body {
+            background-color: #0a0a0a;
+            background-image: radial-gradient(circle at 50% 0%, #2a1600 0%, #0a0a0a 70%);
+            color: #ffffff;
+        }
+        .link-btn { transition: all 0.3s ease; }
+        .link-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(255, 102, 0, 0.3);
+        }
     </style>
 </head>
-<body class="bg-[#121212] min-h-screen flex flex-col items-center py-12 px-4 text-white">
-    <div class="w-full max-w-md flex flex-col items-center">
+<body class="min-h-screen flex flex-col items-center py-12 px-4">
+    <div class="w-full max-w-md w-full flex flex-col items-center">
         
-        <div class="w-32 h-32 mb-4 rounded-full bg-gray-800 flex items-center justify-center border-4 border-[#ff6600] overflow-hidden shadow-[0_0_15px_rgba(255,102,0,0.5)]">
-            <img src="https://ui-avatars.com/api/?name=Cooper&background=ff6600&color=fff&size=128" alt="Cooper Profile" class="w-full h-full object-cover">
-        </div>
-        
-        <h1 class="text-3xl font-bold text-[#ff6600] mb-1">Poets4Life</h1>
-        <p class="text-gray-400 mb-8 text-center text-sm">CEO Control Center & Status Board</p>
-
-        <div class="w-full bg-[#242424] rounded-xl p-5 shadow-lg border border-gray-700 mb-6">
-            <h2 class="text-lg font-semibold mb-4 border-b border-gray-700 pb-2">
-                <i class="fa-solid fa-industry text-[#ff6600] mr-2"></i> สถานะโรงงาน (V4-PRD)
-            </h2>
-            <div class="flex justify-between items-center mb-3">
-                <span class="text-gray-300">ระบบอากู๋ (Gemini API)</span>
-                <span class="text-green-500 bg-green-500/10 px-3 py-1 rounded-full text-xs font-bold">🟢 รอรับคำสั่ง</span>
-            </div>
-            <div class="flex justify-between items-center mb-3">
-                <span class="text-gray-300">สคริปต์ล่าสุด</span>
-                <span class="text-gray-400 text-sm truncate w-32 text-right">รอการอัปเดต...</span>
-            </div>
-            <div class="flex justify-between items-center">
-                <span class="text-gray-300">แจ้งเตือนระบบ</span>
-                <span class="text-gray-500 text-sm">ไม่มี Error </span>
-            </div>
+        <div class="relative w-32 h-32 mb-4">
+            <div class="absolute inset-0 bg-hdOrange rounded-full animate-pulse opacity-50 blur-md"></div>
+            <img src="Cooper_Baby-Biker-Prototype007-s.jpg" alt="" class="relative w-full h-full object-cover rounded-full border-4 border-hdOrange shadow-xl">
         </div>
 
-        <button class="w-full bg-[#ff6600] hover:bg-orange-600 text-white font-bold py-3 px-4 rounded-lg flex items-center justify-center transition duration-300 shadow-lg opacity-50 cursor-not-allowed">
-            <i class="fa-solid fa-power-off mr-2"></i> สั่งเปิดสายพานผลิต (เร็วๆ นี้)
-        </button>
+        <h1 class="text-3xl font-heading tracking-wider mb-1 text-white uppercase">Poets<span class="text-hdOrange">4</span>Life</h1>
+        <p class="text-gray-400 text-sm mb-4">@poets4life</p>
 
+        <div class="text-center text-gray-300 font-light mb-8 px-4 text-sm leading-relaxed">
+            <p class="mb-3">พื้นที่แห่งถ้อยคำที่เติมเต็มพลังใจ พบกับบทกวี คำคม และสุภาษิต ที่จะช่วยนำทางและสร้างแรงบันดาลใจในทุกย่างก้าวของชีวิต<br>
+            🏍️ ถ่ายทอดผ่านมุมมองของ 'น้องคูเปอร์' ไบค์เกอร์ตัวน้อยที่มีหัวใจสุดเก๋า<br>
+            👇 กดติดตามเพื่อรับพลังบวกและข้อคิดเตือนสติได้ทุกวันครับ!</p>
+        </div>
+
+        <div class="w-full flex flex-col gap-4">
+            <a href="https://youtube.com/@poets4life" target="_blank" class="link-btn flex items-center bg-hdGray hover:bg-gray-800 border border-gray-700 w-full rounded-xl p-4 text-white font-medium">
+                <div class="w-10 h-10 rounded-full bg-red-600 flex items-center justify-center mr-4"><i class="fa-brands fa-youtube text-xl"></i></div>
+                <div class="flex-1"><span class="block text-lg">YouTube</span><span class="block text-xs text-gray-400">Watch the latest Shorts!</span></div>
+                <i class="fa-solid fa-chevron-right text-gray-500"></i>
+            </a>
+            <a href="https://facebook.com/poets4life" target="_blank" class="link-btn flex items-center bg-hdGray hover:bg-gray-800 border border-gray-700 w-full rounded-xl p-4 text-white font-medium">
+                <div class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center mr-4"><i class="fa-brands fa-facebook-f text-xl"></i></div>
+                <div class="flex-1"><span class="block text-lg">Facebook</span><span class="block text-xs text-gray-400">Our Biker Community</span></div>
+                <i class="fa-solid fa-chevron-right text-gray-500"></i>
+            </a>
+            <a href="https://tiktok.com/@poetsforlife" target="_blank" class="link-btn flex items-center bg-hdGray hover:bg-gray-800 border border-gray-700 w-full rounded-xl p-4 text-white font-medium">
+                <div class="w-10 h-10 rounded-full bg-black border border-gray-600 flex items-center justify-center mr-4"><i class="fa-brands fa-tiktok text-xl"></i></div>
+                <div class="flex-1"><span class="block text-lg">TikTok</span><span class="block text-xs text-gray-400">Join the viral rides</span></div>
+                <i class="fa-solid fa-chevron-right text-gray-500"></i>
+            </a>
+        </div>
+
+        <div class="mt-12 text-center text-gray-600 text-xs">
+            <p>© 2026 Poets4Life. All rights reserved.</p>
+            <a href="/dashboard.html" class="text-gray-800 hover:text-hdOrange transition mt-3 inline-block"><i class="fa-solid fa-lock"></i></a>
+        </div>
     </div>
 </body>
 </html>
