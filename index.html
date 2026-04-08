@@ -16,7 +16,8 @@
                         hdOrange: '#ff6600',
                         hdDark: '#121212',
                         hdGray: '#242424',
-                        bmcYellow: '#ffdd00' // เพิ่มสี Buy Me a Coffee
+                        bmcYellow: '#ffdd00', // สี Buy Me a Coffee
+                        kofiRed: '#ff5e5b'    // สี Ko-fi เพิ่มใหม่
                     },
                     fontFamily: {
                         sans: ['Kanit', 'sans-serif'],
@@ -37,9 +38,13 @@
             transform: translateY(-3px);
             box-shadow: 0 10px 15px -3px rgba(255, 102, 0, 0.3);
         }
-        /* เพิ่มเอฟเฟกต์เรืองแสงให้ปุ่มกาแฟ */
+        /* เอฟเฟกต์เรืองแสงปุ่ม Buy Me a Coffee */
         .bmc-btn:hover {
             box-shadow: 0 10px 15px -3px rgba(255, 221, 0, 0.4);
+        }
+        /* เอฟเฟกต์เรืองแสงปุ่ม Ko-fi */
+        .kofi-btn:hover {
+            box-shadow: 0 10px 15px -3px rgba(255, 94, 91, 0.4);
         }
     </style>
 </head>
@@ -62,16 +67,28 @@
         
         <div class="w-full flex flex-col gap-4">
             
-            <a href="https://www.buymeacoffee.com/funkyboyz" target="_blank" class="link-btn bmc-btn flex items-center bg-hdGray hover:bg-gray-800 border border-bmcYellow border-opacity-50 w-full rounded-xl p-5 text-white font-medium relative overflow-hidden">
+            <a href="https://buymeacoffee.com/funkyboyz" target="_blank" class="link-btn bmc-btn flex items-center bg-hdGray hover:bg-gray-800 border border-bmcYellow border-opacity-50 w-full rounded-xl p-5 text-white font-medium relative overflow-hidden">
                 <div class="absolute inset-0 bg-bmcYellow opacity-5"></div>
                 <div class="w-12 h-12 rounded-full bg-bmcYellow flex items-center justify-center mr-5 shadow-[0_0_15px_rgba(255,221,0,0.4)] relative z-10">
                     <i class="fa-solid fa-mug-hot text-2xl text-gray-900"></i>
                 </div>
                 <div class="flex-1 text-left relative z-10">
                     <span class="block text-xl text-bmcYellow font-bold">Buy Me a Coffee</span>
-                    <span class="block text-sm text-gray-300">เลี้ยงกาแฟป๊าบุ้ง เติมพลังทำคลิป! ☕</span>
+                    <span class="block text-sm text-gray-300">เลี้ยงกาแฟป๊าบุ๊ง เติมพลังทำคลิป! ☕</span>
                 </div>
                 <i class="fa-solid fa-chevron-right text-bmcYellow relative z-10"></i>
+            </a>
+
+            <a href="https://ko-fi.com/funkyboyz" target="_blank" class="link-btn kofi-btn flex items-center bg-hdGray hover:bg-gray-800 border border-kofiRed border-opacity-50 w-full rounded-xl p-5 text-white font-medium relative overflow-hidden">
+                <div class="absolute inset-0 bg-kofiRed opacity-5"></div>
+                <div class="w-12 h-12 rounded-full bg-kofiRed flex items-center justify-center mr-5 shadow-[0_0_15px_rgba(255,94,91,0.4)] relative z-10">
+                    <i class="fa-solid fa-heart text-2xl text-white"></i>
+                </div>
+                <div class="flex-1 text-left relative z-10">
+                    <span class="block text-xl text-kofiRed font-bold">Ko-fi</span>
+                    <span class="block text-sm text-gray-300">สนับสนุนค่าน้ำมันน้องคูเปอร์ ⛽❤️</span>
+                </div>
+                <i class="fa-solid fa-chevron-right text-kofiRed relative z-10"></i>
             </a>
             
             <a href="https://collshp.com/funkypoets4life" target="_blank" class="link-btn flex items-center bg-hdGray hover:bg-gray-800 border border-gray-700 w-full rounded-xl p-5 text-white font-medium">
