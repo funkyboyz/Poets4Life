@@ -4,7 +4,7 @@
 ถ่ายทอดผ่านมุมมองของ **'น้องคูเปอร์'** ไบค์เกอร์ตัวน้อยที่มีหัวใจสุดเก๋า 😎
 
 ## 🔗 Official Links (ศูนย์บัญชาการ)
-- 🌐 **Link in Bio (Vercel):** [poets4life.vercel.app](https://poets4life.vercel.app)
+- 🌐 **Link in Bio :** [poets4life.com](https://www.poets4life.com/))
 - 🛒 **Shopee My Collection:** [คลังสมบัติฮาร์เลย์น้องคูเปอร์](https://collshp.com/funkypoets4life)
 
 ## 📺 Follow Us
