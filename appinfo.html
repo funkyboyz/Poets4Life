@@ -83,5 +83,22 @@
             &copy; 2026 Poets4Life. All rights reserved.
         </div>
     </div>
+
+    <script>
+        function initiateTikTokLogin() {
+            // ใช้ Client Key ของ Sandbox ที่บอสเทสผ่านแล้ว
+            const clientKey = 'sbawj489u96mwtrm0s'; 
+            
+            // Redirect URI ของ n8n (ต้องตรงกับที่กรอกใน Sandbox App นะครับ)
+            const redirectUri = encodeURIComponent('https://n8n.poets4life.com/rest/oauth2-credential/callback');
+            
+            const scope = 'user.info.basic,video.publish,video.upload'; 
+            const state = 'security_state_' + Math.random().toString(36).substring(7);
+
+            const authUrl = `https://www.tiktok.com/v2/auth/authorize/?client_key=${clientKey}&response_type=code&scope=${scope}&redirect_uri=${redirectUri}&state=${state}`;
+
+            window.location.href = authUrl;
+        }
+    </script>
 </body>
 </html>
