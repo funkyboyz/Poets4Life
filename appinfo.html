@@ -9,27 +9,36 @@
         body { background-color: #f3f4f6; color: #1f2937; }
     </style>
     <script>
+        // ฟังก์ชันตอนกดปุ่ม
         function initiateTikTokLogin() {
-            // 1. เอา Client Key ของแอป (จากหน้า TikTok Developer) มาใส่ตรงนี้
             const clientKey = 'sbawj489u96mwtrm0s'; 
-            // const clientKey = 'act.aOiuXeuYtiH87tJuqh4cbKPyw44G77dENpDMBUFbxmJIq1VbPT7ZLnZBMh70!6337.s1'; // ตัวอย่าง Client Key ของแอป Poets4Life_Bot
             
-            // 2. Redirect URI (ท่อรับของ n8n ที่บอสตั้งไว้)
-            const redirectUri = encodeURIComponent('https://n8n.poets4life.com/rest/oauth2-credential/callback');
+            // จุดสำคัญ: เปลี่ยนเป้าหมายการ Redirect กลับมาที่หน้าเว็บนี้แหละ!
+            const redirectUri = encodeURIComponent('https://www.poets4life.com/appinfo.html');
             
-            // 3. Scope ที่เราขอใช้งาน (ปรับให้ตรงกับที่ขอใน TikTok Portal)
             const scope = 'user.info.basic,video.publish,video.upload'; 
-            
-            // 4. รหัสสุ่มตบตา
             const state = 'security_state_' + Math.random().toString(36).substring(7);
 
-            // ประกอบร่าง URL ชี้ไปที่เซิร์ฟเวอร์ Login ของ TikTok โดยตรง
             const authUrl = `https://www.tiktok.com/v2/auth/authorize/?client_key=${clientKey}&response_type=code&scope=${scope}&redirect_uri=${redirectUri}&state=${state}`;
 
-            // สั่งเปลี่ยนหน้าเว็บไปยังหน้า Login ของ TikTok
             window.location.href = authUrl;
         }
-</script>
+
+        // ฟังก์ชันดักจับ URL ตอนโหลดหน้าเว็บกลับมา
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            
+            // ถ้าเจอคำว่า code ส่งกลับมา แปลว่า Login ผ่านแล้ว
+            if (urlParams.has('code')) {
+                // 1. ซ่อนปุ่มดำ
+                document.getElementById('login-container').style.display = 'none';
+                // 2. โชว์กล่องเขียว
+                document.getElementById('success-container').classList.remove('hidden');
+                // 3. ทริคทำความสะอาด: ลบพวก code ยาวๆ ออกจาก URL Bar ให้ดูเนียนตา
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
+        };
+    </script>
 </head>
 <body class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">    
     <div class="max-w-3xl w-full space-y-8 bg-white p-10 rounded-xl shadow-lg">
@@ -58,15 +67,25 @@
                 </ul>
             </div>
             
-            <div class="mt-10 border-t pt-8 text-center">
+            <!-- กล่องที่ 1: สถานะก่อน Login (โชว์ปุ่ม) -->
+            <div id="login-container" class="mt-10 border-t pt-8 text-center">
                 <h2 class="text-xl font-bold text-gray-900 mb-4">System Administrator Access</h2>
-                    <a href="#" onclick="initiateTikTokLogin(); return false;" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-black hover:bg-gray-800 transition-colors duration-200 shadow-sm">
-                        <svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.12-3.44-3.17-3.64-5.46-.23-2.48.87-4.99 2.81-6.4 1.54-1.12 3.52-1.52 5.4-1.16v4.02c-1.17-.3-2.43-.07-3.34.72-.94.79-1.35 2.1-1.03 3.28.27 1.07 1.15 1.95 2.22 2.24 1.11.3 2.34.05 3.18-.7.83-.73 1.25-1.84 1.25-2.98.02-5.38.01-10.76.02-16.14z"/>
-                        </svg>
-                            Login with TikTok
-                    </a>
-                    <p class="mt-3 text-sm text-gray-500">Strictly for establishing n8n OAuth API connection.</p>
+                <a href="#" onclick="initiateTikTokLogin(); return false;" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-black hover:bg-gray-800 transition-colors duration-200 shadow-sm">
+                    <svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.12-3.44-3.17-3.64-5.46-.23-2.48.87-4.99 2.81-6.4 1.54-1.12 3.52-1.52 5.4-1.16v4.02c-1.17-.3-2.43-.07-3.34.72-.94.79-1.35 2.1-1.03 3.28.27 1.07 1.15 1.95 2.22 2.24 1.11.3 2.34.05 3.18-.7.83-.73 1.25-1.84 1.25-2.98.02-5.38.01-10.76.02-16.14z"/>
+                    </svg>
+                    Login with TikTok
+                </a>
+                <p class="mt-3 text-sm text-gray-500">Strictly for establishing n8n OAuth API connection.</p>
+            </div>
+
+            <!-- กล่องที่ 2: สถานะหลัง Login สำเร็จ (ซ่อนไว้ก่อน) -->
+            <div id="success-container" class="mt-10 border-t pt-8 text-center hidden">
+                <h2 class="text-xl font-bold text-green-600 mb-4">✅ Authentication Successful</h2>
+                <div class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-green-800 bg-green-50">
+                    System access token has been securely generated.
+                </div>
+                <p class="mt-3 text-sm text-gray-500">Internal backend communication is now active.</p>
             </div>
 
             <div class="pt-6 flex flex-col sm:flex-row gap-4 justify-center">
