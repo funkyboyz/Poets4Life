@@ -5,102 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Poets4Life_Bot - Official Application Website</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/png" href="favicon.ico">
     <style>
         body { background-color: #f3f4f6; color: #1f2937; }
     </style>
     <script>
-        // ฟังก์ชันตอนกดปุ่ม
         function initiateTikTokLogin() {
             const clientKey = 'sbawj489u96mwtrm0s'; 
-            
-            // จุดสำคัญ: เปลี่ยนเป้าหมายการ Redirect กลับมาที่หน้าเว็บนี้แหละ!
             const redirectUri = encodeURIComponent('https://www.poets4life.com/appinfo.html');
-            
             const scope = 'user.info.basic,video.publish,video.upload'; 
             const state = 'security_state_' + Math.random().toString(36).substring(7);
-
             const authUrl = `https://www.tiktok.com/v2/auth/authorize/?client_key=${clientKey}&response_type=code&scope=${scope}&redirect_uri=${redirectUri}&state=${state}`;
-
             window.location.href = authUrl;
         }
 
-        // ฟังก์ชันดักจับ URL ตอนโหลดหน้าเว็บกลับมา
         window.onload = function() {
             const urlParams = new URLSearchParams(window.location.search);
-            
-            // ถ้าเจอคำว่า code ส่งกลับมา แปลว่า Login ผ่านแล้ว
-            if (urlParams.has('code')) {
-                // 1. ซ่อนปุ่มดำ
-                document.getElementById('login-container').style.display = 'none';
-                // 2. โชว์กล่องเขียว
+            const code = urlParams.get('code');
+            if (code) {
+                document.getElementById('login-container').classList.add('hidden');
                 document.getElementById('success-container').classList.remove('hidden');
-                // 3. ทริคทำความสะอาด: ลบพวก code ยาวๆ ออกจาก URL Bar ให้ดูเนียนตา
-                window.history.replaceState({}, document.title, window.location.pathname);
             }
-        };
+        }
     </script>
 </head>
-<body class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">    
-    <div class="max-w-3xl w-full space-y-8 bg-white p-10 rounded-xl shadow-lg">
-        <div class="text-center">
-            <h1 class="text-4xl font-extrabold text-gray-900">Poets4Life_Bot</h1>
-            <p class="mt-2 text-lg text-gray-600">Official Developer & Application Website</p>
-        </div>
+<body class="flex items-center justify-center min-h-screen p-4">
+
+    <div class="max-w-md w-full bg-white rounded-2xl shadow-xl p-8 space-y-6 border border-gray-100 text-center">
         
-        <div class="mt-8 space-y-6">
-            <div>
-                <h2 class="text-2xl font-bold text-gray-900 border-b pb-2">About the Application</h2>
-                <p class="mt-4 text-gray-600 leading-relaxed">
-                    <strong>Poets4Life_Bot</strong> is an internal, proprietary automation tool developed exclusively for the Poets4Life media project. Powered by n8n workflows, this application is designed to streamline and automate the deployment of our own video content to our official TikTok profile. 
-                </p>
-                <p class="mt-2 text-gray-600 leading-relaxed">
-                    This application is <strong>not intended for public use</strong> and is strictly restricted to authorized system administrators of the Poets4Life project.
-                </p>
+        <div class="flex flex-col items-center space-y-3">
+            <div class="w-24 h-24 rounded-2xl bg-[#242424] flex items-center justify-center shadow-md border-2 border-[#ff6600]">
+                <span class="text-[#ff6600] font-bold text-3xl tracking-wider">P4L</span>
             </div>
+            <h1 class="text-2xl font-black text-gray-900 tracking-tight">Poets4Life Automation Bot</h1>
+            <p class="text-sm text-gray-500">Official developer verification and secure OAuth portal.</p>
+        </div>
 
-            <div>
-                <h2 class="text-2xl font-bold text-gray-900 border-b pb-2">Developer Information</h2>
-                <ul class="mt-4 space-y-2 text-gray-600">
-                    <li><strong>Organization:</strong> Poets4Life</li>
-                    <li><strong>Main Website:</strong> <a href="https://www.poets4life.com" class="text-blue-600 hover:underline">www.poets4life.com</a></li>
-                    <li><strong>Contact Email:</strong> <a href="mailto:contact@poets4life.com" class="text-blue-600 hover:underline">contact@poets4life.com</a></li>
-                </ul>
-            </div>
-            
-            <!-- กล่องที่ 1: สถานะก่อน Login (โชว์ปุ่ม) -->
-            <div id="login-container" class="mt-10 border-t pt-8 text-center">
-                <h2 class="text-xl font-bold text-gray-900 mb-4">System Administrator Access</h2>
-                <a href="#" onclick="initiateTikTokLogin(); return false;" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-black hover:bg-gray-800 transition-colors duration-200 shadow-sm">
-                    <svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.12-3.44-3.17-3.64-5.46-.23-2.48.87-4.99 2.81-6.4 1.54-1.12 3.52-1.52 5.4-1.16v4.02c-1.17-.3-2.43-.07-3.34.72-.94.79-1.35 2.1-1.03 3.28.27 1.07 1.15 1.95 2.22 2.24 1.11.3 2.34.05 3.18-.7.83-.73 1.25-1.84 1.25-2.98.02-5.38.01-10.76.02-16.14z"/>
+        <div class="border-t border-gray-100 pt-4">
+            <div id="login-container" class="space-y-4">
+                <p class="text-sm text-gray-600">This secure portal allows the system administrator to link their internal TikTok account with our automated publishing workflow pipeline.</p>
+                <button onclick="initiateTikTokLogin()" class="w-full flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-xl text-white bg-black hover:bg-gray-900 shadow-md transition space-x-3">
+                    <svg class="w-6 h-6 fill-current text-white" viewBox="0 0 24 24">
+                        <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.03 1.63 4.15.95 1.08 2.27 1.76 3.65 2v3.52c-1.39-.02-2.77-.43-3.95-1.18-.32-.2-.61-.44-.89-.7v4.46c0 2.15-.53 4.28-1.66 5.92-1.42 2.04-3.79 3.39-6.31 3.59-2.58.21-5.2-.64-7-2.47-1.92-2-2.72-4.93-2.11-7.63.55-2.42 2.15-4.57 4.41-5.56 1.61-.7 3.4-.85 5.09-.45v3.62c-.88-.24-1.84-.18-2.67.24-1.07.55-1.84 1.65-2.01 2.85-.3 2.13 1.34 4.14 3.48 4.25 1.59.08 3.16-.94 3.65-2.45.19-.58.24-1.2.22-1.81V0z"/>
                     </svg>
-                    Login with TikTok
-                </a>
-                <p class="mt-3 text-sm text-gray-500">Strictly for establishing n8n OAuth API connection.</p>
+                    <span>Connect via TikTok</span>
+                </button>
+                <p class="text-xs text-gray-400">Authorized personnel only. Secure API connection.</p>
             </div>
 
-            <!-- กล่องที่ 2: สถานะหลัง Login สำเร็จ (ซ่อนไว้ก่อน) -->
-            <div id="success-container" class="mt-10 border-t pt-8 text-center hidden">
-                <h2 class="text-xl font-bold text-green-600 mb-4">✅ Authentication Successful</h2>
-                <div class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-green-800 bg-green-50">
+            <div id="success-container" class="mt-4 text-center hidden">
+                <h2 class="text-xl font-bold text-green-600 mb-2">✅ Authentication Successful</h2>
+                <div class="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-green-800 bg-green-50">
                     System access token has been securely generated.
                 </div>
-                <p class="mt-3 text-sm text-gray-500">Internal backend communication is now active.</p>
+                <p class="mt-2 text-xs text-gray-500">Internal backend communication is now active.</p>
             </div>
 
-            <div class="pt-6 flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="/terms.html" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-800 hover:bg-gray-700">
-                    Terms of Service
-                </a>
-                <a href="/privacy.html" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-800 hover:bg-gray-700">
-                    Privacy Policy
-                </a>
+            <div class="pt-6 flex gap-4 justify-center text-xs">
+                <a href="/terms.html" class="text-gray-500 hover:text-[#ff6600] transition underline">Terms of Service</a>
+                <span class="text-gray-300">|</span>
+                <a href="/privacy.html" class="text-gray-500 hover:text-[#ff6600] transition underline">Privacy Policy</a>
             </div>
         </div>
         
-        <div class="mt-8 border-t pt-4 text-center text-sm text-gray-500">
-            &copy; 2026 Poets4Life. All rights reserved.
+        <div class="text-[10px] text-gray-400 pt-2">
+            Developer Account Ref: poetsfourlife@gmail.com
         </div>
     </div>
+
 </body>
 </html>
