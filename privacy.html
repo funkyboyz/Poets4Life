@@ -3,57 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - Poets4Life Automation</title>
+    <title>Privacy Policy - Poets4Life Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" type="image/png" href="p4l_logo_s.jpg">
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; max-width: 800px; margin: 40px auto; padding: 0 20px; color: #333; background-color: #fafafa; }
-        .container { background: #fff; padding: 40px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-        h1 { border-bottom: 2px solid #eceff1; padding-bottom: 10px; color: #1a237e; font-size: 28px; }
-        h2 { margin-top: 30px; color: #283593; font-size: 20px; border-left: 4px solid #283593; padding-left: 10px; }
-        p, li { color: #455a64; font-size: 15px; }
-        ul { padding-left: 20px; }
-        footer { margin-top: 50px; font-size: 13px; color: #90a4ae; text-align: center; border-top: 1px solid #eceff1; padding-top: 20px; }
+        body { background-color: #f9fafb; color: #1f2937; }
+        h2 { color: #111827; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; font-size: 1.25rem; }
+        p, li { color: #4b5563; line-height: 1.625; margin-bottom: 0.75rem; font-size: 0.95rem; }
     </style>
 </head>
-<body>
-<div class="container">
-    <h1>Privacy Policy</h1>
-    <p><strong>Last Updated: May 25, 2026</strong></p>
-    <p>This Privacy Policy describes how the Poets4Life Automation Application ("we", "our", or "the App") collects, uses, stores, and shares information when you use our services, specifically regarding our integration with the TikTok Developer API.</p>
+<body class="antialiased">
 
-    <h2>1. Information We Collect</h2>
-    <p>Our App is a private automation workflow (powered by n8n) utilized solely for managing and publishing content to our official Poets4Life social media channels. We only collect and access:</p>
-    <ul>
-        <li><strong>Basic Profile Information:</strong> We access basic TikTok profile details (such as OpenID, Display Name, and Avatar) strictly for identity verification during the internal login and authorization process.</li>
-        <li><strong>OAuth Authentication Tokens:</strong> Access tokens and refresh tokens provided securely by TikTok to authorize video publishing.</li>
-        <li><strong>Content Data:</strong> Video files, captions, and scheduling details that are intentionally designated to be posted onto our own TikTok profile.</li>
-    </ul>
+    <div class="max-w-3xl mx-auto py-12 px-6">
+        <div class="text-center mb-10">
+            <a href="/appinfo.html">
+                <img src="p4l_logo_s.jpg" alt="P4L Logo" class="w-16 h-16 rounded-xl shadow-sm border border-gray-200 object-cover mx-auto mb-4 hover:opacity-80 transition">
+            </a>
+            <h1 class="text-3xl font-black text-gray-900 tracking-tight">Privacy Policy</h1>
+            <p class="text-sm text-gray-500 mt-2">Last Updated: July 2026</p>
+        </div>
 
-    <h2>2. How We Use Information</h2>
-    <p>We use the accessed information strictly for the following purposes:</p>
-    <ul>
-        <li>To automatically upload and publish videos to our authorized TikTok account as configured in our backend pipeline.</li>
-        <li>To maintain and refresh authentication tokens securely to ensure uninterrupted automated posting services.</li>
-    </ul>
-    <p>We <strong>do not</strong> use your data for marketing, advertising, profiling, or any other commercial usage outside of Content Publishing.</p>
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 md:p-10">
+            <p>At Poets4Life Studio ("we," "our," or "the App"), your privacy is our priority. This Privacy Policy outlines how we collect, use, and protect your information when you use our video scheduling and publishing services via our integration with TikTok.</p>
 
-    <h2>3. Data Storage and Security</h2>
-    <p>All authentication credentials and tokens are encrypted and stored locally within our secure cloud infrastructure and private n8n database instance. No third party has access to these keys. We apply standard industry security protocols to prevent unauthorized access, disclosure, or modification of tokens.</p>
+            <h2>1. Information We Collect</h2>
+            <p>Our platform operates with minimal data collection. We only request necessary permissions (Scopes) via the TikTok API to provide our core functionality. We collect:</p>
+            <ul class="list-disc pl-5 mb-3">
+                <li><strong>Basic Profile Information:</strong> Such as your TikTok display name and avatar, strictly to verify your identity during the secure authorization process.</li>
+                <li><strong>Authentication Tokens:</strong> OAuth access and refresh tokens provided directly by TikTok to authorize video uploads and publishing on your behalf.</li>
+            </ul>
 
-    <h2>4. Data Sharing and Disclosure</h2>
-    <p>We <strong>never sell, rent, trade, or share</strong> any user data or authentication tokens with third-party companies, advertising networks, or external entities. Data is only transmitted directly to TikTok's official endpoints during the automated video execution process.</p>
+            <h2>2. How We Use Information</h2>
+            <p>We use the collected information exclusively for the following purposes:</p>
+            <ul class="list-disc pl-5 mb-3">
+                <li>To securely upload and publish your scheduled video content to your authenticated TikTok account as requested by you.</li>
+                <li>To maintain active authentication tokens to ensure uninterrupted publishing services.</li>
+            </ul>
+            <p><strong>We do not use your data for marketing, advertising, profiling, or any other commercial usage outside of the core Content Publishing features.</strong></p>
 
-    <h2>5. Data Retention and Deletion</h2>
-    <p>We only retain authentication tokens for as long as the automation pipeline remains active. If we decide to deprecate the pipeline or delete the application integration from our TikTok account, all associated tokens, session files, and cached content logs will be permanently deleted from our servers immediately.</p>
-    <p><strong>Data Deletion Request:</strong> If you wish to request the manual deletion of your stored authentication data from our databases, please contact us at <a href="mailto:contact@poets4life.com" class="text-blue-600 hover:underline">contact@poets4life.com</a>. Additionally, you can instantly revoke our application's access at any time via your TikTok Security Settings.</p>
+            <h2>3. Data Storage and Security</h2>
+            <p>All authentication credentials and tokens are encrypted and stored locally within our secure cloud infrastructure. We apply standard industry security protocols to prevent unauthorized access, disclosure, or modification of tokens.</p>
 
-    <h2>6. Contact Us</h2>
-    <p>If you have any questions, compliance reviews, or concerns regarding this Privacy Policy, please contact us at:</p>
-    <p>Email: <strong><a href="mailto:contact@poets4life.com" class="text-blue-600 hover:underline">contact@poets4life.com</a></strong></p>
+            <h2>4. Data Sharing and Disclosure</h2>
+            <p>We <strong>never sell, rent, or share</strong> your user data, authentication tokens, or video content with third-party companies, advertising networks, or external entities. Data is only transmitted directly to TikTok's official endpoints during the automated video execution process.</p>
 
-    <footer>
-        &copy; 2026 Poets4Life Project. All Rights Reserved.
-    </footer>
-</div>
+            <h2>5. Data Retention and Deletion</h2>
+            <p>We only retain authentication tokens for as long as you actively use our platform. If you decide to disconnect the App from your TikTok account, all associated tokens become immediately invalid and are permanently deleted from our servers.</p>
+            <p><strong>Data Deletion Request:</strong> You can instantly revoke our application's access at any time via your personal TikTok Security Settings. If you wish to request the manual deletion of any residual connection data from our secure server, please contact us.</p>
+
+            <h2>6. Contact Us</h2>
+            <p>For privacy-related inquiries, compliance reviews, or concerns regarding this Privacy Policy, please contact our developer support team at: <a href="mailto:contact@poets4life.com" class="text-blue-600 hover:underline">contact@poets4life.com</a>.</p>
+        </div>
+        
+        <div class="text-center mt-8 text-xs text-gray-400">
+            &copy; 2026 Poets4Life Studio. All rights reserved.
+        </div>
+    </div>
+
 </body>
 </html>
