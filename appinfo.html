@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Poets4Life_Bot - Official Application Website</title>
+    <title>Poets4Life Studio - Official Application Website</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" type="image/png" href="p4l_logo_s.jpg">
     <style>
@@ -12,6 +12,7 @@
     <script>
         function initiateTikTokLogin() {
             const clientKey = 'sbawj489u96mwtrm0s'; 
+            // หมายเหตุ: ตรวจสอบให้แน่ใจว่า redirectUri นี้ตรงกับที่คุณตั้งค่าไว้ใน TikTok Developer Portal
             const redirectUri = encodeURIComponent('https://www.poets4life.com/appinfo.html');
             const scope = 'user.info.basic,video.publish,video.upload'; 
             const state = 'security_state_' + Math.random().toString(36).substring(7);
@@ -37,29 +38,29 @@
             <!-- ส่วนหัว: ดึงรูปโลโก้จริง p4l_logo_s.jpg มาแสดงผล -->
             <div class="flex flex-col items-center space-y-3">
                 <img src="p4l_logo_s.jpg" alt="P4L Logo" class="w-24 h-24 rounded-2xl shadow-md border border-gray-200 object-cover">
-                <h1 class="text-2xl font-black text-gray-900 tracking-tight">Poets4Life Automation Bot</h1>
-                <p class="text-sm text-gray-500">Official developer verification and secure OAuth portal.</p>
+                <h1 class="text-2xl font-black text-gray-900 tracking-tight">Poets4Life Studio</h1>
+                <p class="text-sm text-gray-500">The centralized content management platform for independent creators.</p>
             </div>
         </div>
 
         <div class="border-t border-gray-100 pt-4">
             <div id="login-container" class="space-y-4">
-                <p class="text-sm text-gray-600">This secure portal allows the system administrator to link their internal TikTok account with our automated publishing workflow pipeline.</p>
+                <p class="text-sm text-gray-600">Securely connect your TikTok profile to schedule, manage, and publish your video content directly from our streamlined dashboard.</p>
                 <button onclick="initiateTikTokLogin()" class="w-full flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-xl text-white bg-black hover:bg-gray-900 shadow-md transition space-x-3">
                     <svg class="w-6 h-6 fill-current text-white" viewBox="0 0 24 24">
                         <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.03 1.63 4.15.95 1.08 2.27 1.76 3.65 2v3.52c-1.39-.02-2.77-.43-3.95-1.18-.32-.2-.61-.44-.89-.7v4.46c0 2.15-.53 4.28-1.66 5.92-1.42 2.04-3.79 3.39-6.31 3.59-2.58.21-5.2-.64-7-2.47-1.92-2-2.72-4.93-2.11-7.63.55-2.42 2.15-4.57 4.41-5.56 1.61-.7 3.4-.85 5.09-.45v3.62c-.88-.24-1.84-.18-2.67.24-1.07.55-1.84 1.65-2.01 2.85-.3 2.13 1.34 4.14 3.48 4.25 1.59.08 3.16-.94 3.65-2.45.19-.58.24-1.2.22-1.81V0z"/>
                     </svg>
-                    <span>Connect via TikTok</span>
+                    <span>Connect with TikTok</span>
                 </button>
-                <p class="text-xs text-gray-400">Authorized personnel only. Secure API connection.</p>
+                <p class="text-xs text-gray-400">Secure OAuth connection. Empowering creators worldwide.</p>
             </div>
 
             <div id="success-container" class="mt-4 text-center hidden">
                 <h2 class="text-xl font-bold text-green-600 mb-2">✅ Authentication Successful</h2>
                 <div class="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-green-800 bg-green-50">
-                    System access token has been securely generated.
+                    Account successfully connected and verified.
                 </div>
-                <p class="mt-2 text-xs text-gray-500">Internal backend communication is now active.</p>
+                <p class="mt-2 text-xs text-gray-500">You can now schedule and publish content to your TikTok profile.</p>
             </div>
 
             <div class="pt-6 flex gap-4 justify-center text-xs">
