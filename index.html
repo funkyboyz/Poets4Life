@@ -18,7 +18,8 @@
                         hdDark: '#121212',
                         hdGray: '#242424',
                         bmcYellow: '#ffdd00', 
-                        kofiRed: '#ff5e5b'    
+                        kofiRed: '#ff5e5b',
+                        genesisBlue: '#4F46E5'
                     },
                     fontFamily: {
                         sans: ['Kanit', 'sans-serif'],
@@ -45,6 +46,9 @@
         .kofi-btn:hover {
             box-shadow: 0 10px 15px -3px rgba(255, 94, 91, 0.4);
         }
+        .genesis-btn:hover {
+            box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.4);
+        }
     </style>
 </head>
 <body class="min-h-screen flex flex-col items-center py-16 px-4">
@@ -66,6 +70,19 @@
         
         <div class="w-full flex flex-col gap-4">
             
+            <!-- ADMIN LINK: P4L Genesis Studio -->
+            <a href="https://studio.poets4life.com" target="_blank" class="link-btn genesis-btn flex items-center bg-hdGray hover:bg-gray-800 border border-genesisBlue border-opacity-30 w-full rounded-xl p-5 text-white font-medium relative overflow-hidden">
+                <div class="absolute inset-0 bg-genesisBlue opacity-5"></div>
+                <div class="w-12 h-12 rounded-full bg-genesisBlue flex items-center justify-center mr-5 shadow-[0_0_15px_rgba(79,70,229,0.3)] relative z-10">
+                    <i class="fa-solid fa-video text-2xl text-white"></i>
+                </div>
+                <div class="flex-1 text-left relative z-10">
+                    <span class="block text-xl text-indigo-400 font-bold">P4L Genesis Studio</span>
+                    <span class="block text-sm text-gray-400">Content Management System</span>
+                </div>
+                <i class="fa-solid fa-chevron-right text-genesisBlue relative z-10"></i>
+            </a>
+
             <a href="https://buymeacoffee.com/poets4life" target="_blank" class="link-btn bmc-btn flex items-center bg-hdGray hover:bg-gray-800 border border-bmcYellow border-opacity-50 w-full rounded-xl p-5 text-white font-medium relative overflow-hidden">
                 <div class="absolute inset-0 bg-bmcYellow opacity-5"></div>
                 <div class="w-12 h-12 rounded-full bg-bmcYellow flex items-center justify-center mr-5 shadow-[0_0_15px_rgba(255,221,0,0.4)] relative z-10">
