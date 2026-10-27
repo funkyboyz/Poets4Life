@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+@theme {
+  --color-hdOrange: #ff6600;
+  --color-hdDark: #121212;
+  --color-hdGray: #242424;
+  --color-bmcYellow: #ffdd00;
+  --color-kofiRed: #ff5e5b;
+  --color-genesisBlue: #4F46E5;
+  --font-sans: 'Kanit', sans-serif;
+  --font-heading: 'Oswald', sans-serif;
+}
+
+body {
+  background-color: #0a0a0a;
+  background-image: radial-gradient(circle at 50% 0%, #2a1600 0%, #0a0a0a 70%);
+  color: #ffffff;
+}
+
+.link-btn {
+  transition: all 0.3s ease;
+}
+.link-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 15px -3px rgba(255, 102, 0, 0.3);
+}
+.bmc-btn:hover {
+  box-shadow: 0 10px 15px -3px rgba(255, 221, 0, 0.4);
+}
+.kofi-btn:hover {
+  box-shadow: 0 10px 15px -3px rgba(255, 94, 91, 0.4);
+}
+.genesis-btn:hover {
+  box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.4);
+}
+
+.admin-link {
+  transition: color 0.2s ease;
+}
+.admin-link:hover {
+  color: #ff6600;
+}

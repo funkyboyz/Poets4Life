@@ -1,0 +1,38 @@
+{
+  "name": "poets4life",
+  "version": "1.0.0",
+  "description": "พื้นที่แห่งถ้อยคำที่เติมเต็มพลังใจ พบกับบทกวี คำคม และสุภาษิตที่จะช่วยนำทางและสร้างแรงบันดาลใจในทุกย่างก้าวของชีวิต \r ถ่ายทอดผ่านมุมมองของ **'น้องคูเปอร์'** ไบค์เกอร์ตัวน้อยที่มีหัวใจสุดเก๋า 😎",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/funkyboyz/Poets4Life.git"
+  },
+  "keywords": [],
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/funkyboyz/Poets4Life/issues"
+  },
+  "homepage": "https://github.com/funkyboyz/Poets4Life#readme",
+  "dependencies": {
+    "next": "^16.4.3",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-image-crop": "^11.1.2"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^26.6.5",
+    "@types/react": "^19.3.0",
+    "@types/react-image-crop": "^8.1.6",
+    "autoprefixer": "^10.6.2",
+    "postcss": "^8.5.32",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^7.0.2"
+  }
+}
