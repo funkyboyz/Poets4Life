@@ -1,28 +1,11 @@
-'use client'
-
-import { useState } from 'react'
 import AvatarSection from '@/components/AvatarSection'
 import LinkCard from '@/components/LinkCard'
-import ImageCropperModal from '@/components/ImageCropperModal'
 
 export default function Home() {
-  const [showCropper, setShowCropper] = useState(false)
-  const [avatarUpdated, setAvatarUpdated] = useState(false)
-
-  const handleExport = (_dataUrl: string, _blob: Blob) => {
-    setAvatarUpdated(true)
-    setShowCropper(false)
-  }
-
   return (
     <>
       <div className="w-full max-w-md flex flex-col items-center">
         <AvatarSection />
-        {avatarUpdated && (
-          <p className="mt-4 mb-6 text-xs text-hdOrange">
-            ✨ Cooper&apos;s avatar updated from the cropper export!
-          </p>
-        )}
 
         <div className="w-full flex flex-col gap-4">
           {/* P4L Genesis Studio */}
@@ -114,26 +97,12 @@ export default function Home() {
             iconWrapperClassName="bg-black"
             icon={<i className="fa-brands fa-tiktok text-2xl"></i>}
           />
-
-          {/* Admin: image cropper tool */}
-          <button
-            onClick={() => setShowCropper(true)}
-            className="mt-6 text-xs text-gray-600 admin-link hover:text-hdOrange"
-          >
-            🛠 Admin &mdash; Update Cooper&apos;s avatar (Image Cropper Tool)
-          </button>
         </div>
 
         <div className="mt-16 text-center text-gray-600 text-xs">
           <p>© 2026 Poets4Life. All rights reserved.</p>
         </div>
       </div>
-
-      <ImageCropperModal
-        open={showCropper}
-        onClose={() => setShowCropper(false)}
-        onExport={handleExport}
-      />
     </>
   )
 }
